@@ -6,6 +6,11 @@ M.load_config = function()
   local chadrc_exists, chadrc = pcall(require, "custom.chadrc")
 
   if chadrc_exists then
+    -- Disable  all default keymaps
+    if chadrc.disable_default_mappings and not chadrc.mappings then
+      config.mappings = {}
+    end
+
     -- merge user config if it exists and is a table; otherwise display an error
     if type(chadrc) == "table" then
       config.mappings = M.remove_disabled_keys(chadrc.mappings, config.mappings)

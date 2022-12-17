@@ -21,6 +21,9 @@ M.ui = {
 
 M.plugins = {}
 
+-- Disable  all default keymaps
+M.disable_default_mappings = false
+
 -- check core.mappings for table structure
 M.mappings = require "core.mappings"
 
